@@ -1,3 +1,4 @@
+from logging import exception
 from housing.entity.config_entity import DataIngestionConfig, DataTransformationConfig,DataValidationConfig,   \
 ModelTrainerConfig,ModelEvaluationConfig,ModelPusherConfig,TrainingPipelineConfig
 from housing.util.util import read_yaml_file
@@ -19,7 +20,10 @@ class Configuartion:
 
 
     def get_data_ingestion_config(self) ->DataIngestionConfig:
-        pass
+        try:
+            pass
+        except Exception as e:
+            raise HousingException(e,sys) from e 
 
     def get_data_validation_config(self) -> DataValidationConfig:
         pass
